@@ -1,4 +1,4 @@
-# BOS Gateway for Polygon zkEVM apps
+# BOS Gateway for NearBox
 
 ## Setup & Development
 
@@ -18,7 +18,7 @@ pnpm dev
 The entry component is ```PolygonZkEVM``` and it's located at
 ```/src/components/polygon/index.tsx```
 
-It loads the ```mattlock.near/widget/zk-evm-lp``` BOS component. The source can be found [here](https://near.org/near/widget/ComponentDetailsPage?src=mattlock.near/widget/zk-evm-lp&tab=source).
+It loads the ```mattb.near/widget/NearBox.Views.Home``` BOS component. The source can be found [here](https://near.org/near/widget/ComponentDetailsPage?src=mattb.near/widgetNearBox.Views.Home&tab=source).
 
 ## Deployment
 
