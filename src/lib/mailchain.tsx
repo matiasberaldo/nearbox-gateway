@@ -59,6 +59,34 @@ export class MailchainSDK implements MailchainInterface {
     });
   }
 
+  async notifyNFT(to: string, nftUrl: string, text: string): Promise<boolean> {
+    const toMail = this.getNearAddressFromAccount(to);
+
+    return this.addressIsReachable(to).then(async (isReachable: boolean) => {
+        if (isReachable) {
+            const result = await this.context?.sendMail({
+                from: this.user!.address,
+                to: [toMail],
+                subject: `You've just received a brand new NFT from ${this.user!.username}!`,
+                content: {
+                    text,
+                    html: `
+                    <h1>Take a look at your brand new NFT!</h1>
+                    <br/>
+                    <img src="${nftUrl}" />
+                    <br/>
+                    <p>${text}</p>
+                    `,
+                },
+            });
+
+            return !result?.error;
+        } else {
+            return false;
+        }
+    });
+  }
+
   async addressIsReachable(account: string): Promise<boolean> {
     const address = this.getNearAddressFromAccount(account);
     const { data: resolvedAddress, error: resolveAddressError } = await resolveAddress(address);
