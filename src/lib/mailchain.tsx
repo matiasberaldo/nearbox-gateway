@@ -73,7 +73,7 @@ export class MailchainSDK implements MailchainInterface {
                     html: `
                     <h1>Take a look at your brand new NFT!</h1>
                     <br/>
-                    <img src="${nftUrl}" />
+                    <img src="${nftUrl}" style="max-width:300px;" />
                     <br/>
                     <p>${text}</p>
                     `,
