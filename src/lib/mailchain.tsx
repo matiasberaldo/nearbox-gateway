@@ -14,6 +14,7 @@ interface MailchainInterface {
   send: any;
   addressIsReachable: any;
   getNearAddressFromAccount: any;
+  getUserAddress: any;
 }
 
 export class MailchainSDK implements MailchainInterface {
@@ -95,5 +96,9 @@ export class MailchainSDK implements MailchainInterface {
 
   getNearAddressFromAccount(account: string): string {
     return `${account}@near.mailchain.com`;
+  }
+
+  getUserAddress(): string {
+    return this.user!.address;
   }
 }
